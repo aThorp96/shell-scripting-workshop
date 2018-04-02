@@ -12,28 +12,48 @@
  * Avoiding large overhead/libraries
  * Very easy to write
 
-# Basic program
- * Hello World
+# Documentation / References
+ `$man <program_name>`
 
 # Basic program
  * Hello World
+ * `HelloMe.sh`
+
+# Basic program
+ * Hello Me
 ``` bash
 #!/bin/bash
 # This is a comment!
-echo 'Hello World!'
+echo "Hello $USER!"
 ```
 
 # Anatomy
 > `#!/bin/bash`
+ 
 The "Shabang": path to binary
 
 # Anatomy
-> `echo 'Hello World!`
+> `echo "Hello $USER!"`
+
 The echo command
 
 # Anatomy (aside)
-> `echo "Hello $USER!`
-vs
-> `echo 'Hello $USER!`
+`echo "Hello $USER!`
 
+        vs
+`echo 'Hello $USER!`
 
+# Anatomy
+> `# This is a comment`
+
+Golly I wonder what this is
+
+# Anatomy
+``` bash
+#!/bin/bash
+# This is a comment!
+echo "Hello World!" # This is also a comment
+```
+
+# Usage
+>`$ ./helloMe.sh
