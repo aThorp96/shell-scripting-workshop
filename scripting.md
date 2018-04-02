@@ -78,7 +78,6 @@ run `$chmod +x ./<your_script>`
 run `$./helloMe.sh`
 
 # Fundamentals: Variables
-
 ## Variables
  
  ```bash
@@ -87,6 +86,16 @@ run `$./helloMe.sh`
  NAME="Genreal Kenobi..."
  #Variable usage
  echo "$MESSAGE $NAME"
+ ```
+ 
+# Fundamentals: Arguments
+## Arguments
+ 
+ ```bash
+ # Called with argScript.sh <firstName> <lastName>
+ FNAME=$1
+ LNAME;$2
+ echo "Hello $1 $2. You called this script with $# arguments!"
  ```
 
 # Fundamentals: Loops
@@ -144,7 +153,7 @@ Notice the spaces around the brackets
 # Fundamentals: Tools
 
  * `grep` - find
- * `awk`  - just about anything
+ * `awk`  - just about anything, mainly dealing with word manipulation / pattern matching
  * `sed`  - manipulate streams of text, find and replace, etc
  * `echo` - print a value
  * `cat`  - print the contents of a file
