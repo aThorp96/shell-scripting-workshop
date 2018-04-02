@@ -16,6 +16,13 @@
 Documentation can be found my typing:
 
  `$man <program_name>`
+ 
+# Review
+## Pipes
+ * `cmd1 | cmd2` takes output of `cmd1` and feeds it as input to `cmd2`
+ * `cmd1 >> file` takes the output of `cmd1` and appends `file` with the contents
+ * `cmd2 > file` takes the output of `cmd1` and overwrites `file` with the contents
+ * `cmd3 < file` takes the contents of `file` and extracts them as input to `cmd3`
 
 # Basic program
  Hello World
@@ -141,3 +148,5 @@ Notice the spaces around the brackets
  * `sed`  - manipulate streams of text, find and replace, etc
  * `echo` - print a value
  * `cat`  - print the contents of a file
+ 
+
