@@ -13,47 +13,131 @@
  * Very easy to write
 
 # Documentation / References
+Documentation can be found my typing:
+
  `$man <program_name>`
 
 # Basic program
- * Hello World
- * `HelloMe.sh`
+ Hello World
+  
+ `HelloMe.sh`
 
 # Basic program
- * Hello Me
+## Hello Me
+
 ``` bash
 #!/bin/bash
 # This is a comment!
-echo "Hello $USER!"
+echo "Hello $USER!" # This is also a comment
 ```
 
 # Anatomy
-> `#!/bin/bash`
+
+ `#!/bin/bash`
  
 The "Shabang": path to binary
 
 # Anatomy
-> `echo "Hello $USER!"`
+
+ `echo "Hello $USER!"`
 
 The echo command
 
 # Anatomy (aside)
-`echo "Hello $USER!`
+`echo "Hello $USER!"`
 
         vs
-`echo 'Hello $USER!`
+`echo 'Hello $USER!'`
 
 # Anatomy
-> `# This is a comment`
+
+ `# This is a comment`
 
 Golly I wonder what this is
 
-# Anatomy
-``` bash
-#!/bin/bash
-# This is a comment!
-echo "Hello World!" # This is also a comment
-```
+
+# Usage?
+
+Running the script
+
+`$ ./helloMe.sh`
 
 # Usage
->`$ ./helloMe.sh
+
+Running the script:
+
+run `$chmod +x ./<your_script>`
+
+run `$./helloMe.sh`
+
+# Fundamentals: Variables
+
+## Variables
+ 
+ ```bash
+ # Variable definition
+ MESSAGE="Hello there.\n"
+ NAME="Genreal Kenobi..."
+ #Variable usage
+ echo "$MESSAGE $NAME"
+ ```
+
+# Fundamentals: Loops
+## FOR loop ##
+ 
+```bash
+for i in $( ls ); do
+    echo item: $i
+done
+```
+    
+# Fundamentals: Loops
+## FOR loop ##
+ 
+```bash
+for i in *; do
+    echo item: $i
+done
+```
+    
+# Fundamentals: Loops
+## FOR loop ##
+
+```bash
+for i in `seq 1 10; do
+    echo item: $i
+done
+``` 
+    
+# Fundamentals: Loops
+## WHILE loop ##
+ 
+``` bash
+echo "Press Ctrl-C to escape"
+while read f; do
+    echo $f
+done
+```
+    
+# Fundamentals: Conditionals
+## Testing ##
+ 
+``` bash
+if [ true ]; then
+    echo true
+elif [ true ]
+    echo "This should not be reached"
+else
+    echo "If you're here something is very wrong"
+fi
+```
+
+Notice the spaces around the brackets
+
+# Fundamentals: Tools
+
+ * `grep` - find
+ * `awk`  - just about anything
+ * `sed`  - manipulate streams of text, find and replace, etc
+ * `echo` - print a value
+ * `cat`  - print the contents of a file
