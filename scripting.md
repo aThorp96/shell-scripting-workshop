@@ -26,7 +26,7 @@ Documentation can be found my typing:
 
 # Basic program
  Hello World
-  
+ 
  `HelloMe.sh`
 
 # Basic program
@@ -37,12 +37,6 @@ Documentation can be found my typing:
 # This is a comment!
 echo "Hello $USER!" # This is also a comment
 ```
-
-# Anatomy
-
- `#!/bin/bash`
- 
-The "Shabang": path to binary
 
 # Anatomy
 
@@ -81,11 +75,11 @@ run `$./helloMe.sh`
 ## Variables
  
  ```bash
- # Variable definition
- MESSAGE="Hello there.\n"
- NAME="Genreal Kenobi..."
- #Variable usage
- echo "$MESSAGE $NAME"
+ # variable definition
+ message="hello there.\n"
+ name="genreal kenobi..."
+ #variable usage
+ echo "$message $name"
  ```
  
 # Fundamentals: Arguments
@@ -103,16 +97,17 @@ run `$./helloMe.sh`
  
 ```bash
 for i in $( ls ); do
-    echo item: $i
+    echo "item: $i"
 done
 ```
+* friendlyList.sh
     
 # Fundamentals: Loops
 ## FOR loop ##
  
 ```bash
 for i in *; do
-    echo item: $i
+    echo "item: $i"
 done
 ```
     
@@ -121,7 +116,7 @@ done
 
 ```bash
 for i in `seq 1 10; do
-    echo item: $i
+    echo "item: $i"
 done
 ``` 
     
@@ -134,6 +129,7 @@ while read f; do
     echo $f
 done
 ```
+ * repeater.sh
     
 # Fundamentals: Conditionals
 ## Testing ##
