@@ -36,4 +36,5 @@ do
 move_flake "$x"
 done
  
+sleep 0.1
 done
