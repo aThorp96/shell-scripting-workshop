@@ -4,6 +4,8 @@
 
 # What is shell scripting?
  * BASH pipes
+ * Environment variable
+ * File manipulation
 
 
 # Why use shell scripting
@@ -11,6 +13,7 @@
  * Not having to learn the language
  * Avoiding large overhead/libraries
  * Very easy to write
+ * Interract natively with OS environment
 
 # Documentation / References
 Documentation can be found my typing:
@@ -23,14 +26,10 @@ Documentation can be found my typing:
  * `cmd1 >> file` takes the output of `cmd1` and appends `file` with the contents
  * `cmd2 > file` takes the output of `cmd1` and overwrites `file` with the contents
  * `cmd3 < file` takes the contents of `file` and extracts them as input to `cmd3`
-
-# Basic program
- Hello World
  
- `HelloMe.sh`
-
 # Basic program
-## Hello Me
+
+ * HelloMe.sh
 
 ``` bash
 #!/bin/bash
@@ -45,6 +44,7 @@ echo "Hello $USER!" # This is also a comment
 The echo command
 
 # Anatomy (aside)
+What is the difference here?
 `echo "Hello $USER!"`
 
         vs
@@ -54,8 +54,7 @@ The echo command
 
  `# This is a comment`
 
-Golly I wonder what this is
-
+Golly Gee I wonder what this is
 
 # Usage?
 
@@ -67,12 +66,14 @@ Running the script
 
 Running the script:
 
-run `$chmod +x ./<your_script>`
+run `$chmod +x /path/to/script`
 
 run `$./helloMe.sh`
 
 # Fundamentals: Variables
 ## Variables
+
+ * prequalMeme.sh
  
  ```bash
  # variable definition
@@ -84,23 +85,30 @@ run `$./helloMe.sh`
  
 # Fundamentals: Arguments
 ## Arguments
+
+ * arguments.sh
  
  ```bash
  # Called with argScript.sh <firstName> <lastName>
  FNAME=$1
  LNAME;$2
- echo "Hello $1 $2. You called this script with $# arguments!"
+ STR1="Hello $1 $2. "
+ STR2="You called this script with $# arguments" 
+ STR3="The arguments were: $@"
+ echo $STR1 $STR2
+ echo $STR3
  ```
 
 # Fundamentals: Loops
 ## FOR loop ##
+
+* friendlyList.sh
  
 ```bash
 for i in $( ls ); do
     echo "item: $i"
 done
 ```
-* friendlyList.sh
     
 # Fundamentals: Loops
 ## FOR loop ##
@@ -135,9 +143,9 @@ done
 ## Testing ##
  
 ``` bash
-if [ true ]; then
+if [ "myString" = "myString" ]; then
     echo true
-elif [ true ]
+elif [ 5 -lt 5 ]
     echo "This should not be reached"
 else
     echo "If you're here something is very wrong"
@@ -149,9 +157,28 @@ Notice the spaces around the brackets
 # Fundamentals: Tools
 
  * `grep` - find
- * `awk`  - just about anything, mainly dealing with word manipulation / pattern matching
- * `sed`  - manipulate streams of text, find and replace, etc
+ * `tr` - find and replace characters
  * `echo` - print a value
  * `cat`  - print the contents of a file
  
+# grep
+ * Used to pattern match
+ * Accepts regular expressions
+ * Should not be used like `cat myFile | grep "pattern"`.
+ * General syntax: `grep "pattern / expression" <file/files>`
+ 
+# tr
+ * Replaces characters with other characters (called "sets")
+ * Usefull for manipulating text files
+ * Basic syntax: (replaces each space witha  newline) `cat myFile | tr ' ' '\n'`
 
+# echo 
+ * Prints input to standard out
+ * Used for piping variables into commands
+ * Basic syntax: `echo "Hello World!"`
+
+# cat
+ * Stands for concatinate 
+ * Outputs contents of file to stnadard out.
+ * Notoriously overused
+ * Basic Syntax: `cat myFile`
