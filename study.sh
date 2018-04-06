@@ -12,14 +12,15 @@ sudo echo "Root access given to script"
 # Backup your current hosts file to /etc/hosts.bak, then throw away any verbosity
 cat /etc/hosts | sudo tee /etc/hosts.bak > /dev/null
 
-NULL_IP="0:0:0:0"
-TIME=$(echo "$1 * 60" | bc) 
+NULL_IP="0.0.0.0"
+NULL_MASK="::0"
+TIME= $( echo "60*$1" | bc )
 
 shift 1
 for i in $@; do
     DOMAIN="$i"
-    echo -e "$NULL_IP"$'\t'"https://$DOMAIN" | sudo tee -a /etc/hosts > /dev/null
-    echo -e "$NULL_IP"$'\t'"http://$DOMAIN" | sudo tee -a /etc/hosts > /dev/null
+    echo -e "$NULL_IP"$'\t'"$DOMAIN" | sudo tee -a /etc/hosts > /dev/null
+    echo -e "$NULL_MASK"$'\t'"$DOMAIN" | sudo tee -a /etc/hosts > /dev/null
 done
 
 sleep $TIME

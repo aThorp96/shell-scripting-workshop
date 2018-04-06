@@ -3,8 +3,9 @@
 %Linux@App
 
 # What is shell scripting?
+ * BASH commands
  * BASH pipes
- * Environment variable
+ * Environment variables
  * File manipulation
 
 
@@ -13,7 +14,7 @@
  * Not having to learn the language
  * Avoiding large overhead/libraries
  * Very easy to write
- * Interract natively with OS environment
+ * Interact natively with OS environment
 
 # Documentation / References
 Documentation can be found my typing:
@@ -98,7 +99,7 @@ run `$./helloMe.sh`
  echo $STR1 $STR2
  echo $STR3
  ```
-
+ 
 # Fundamentals: Loops
 ## FOR loop ##
 
@@ -131,13 +132,13 @@ done
 # Fundamentals: Loops
 ## WHILE loop ##
  
+ * repeater.sh
 ``` bash
 echo "Press Ctrl-C to escape"
 while read f; do
     echo $f
 done
 ```
- * repeater.sh
     
 # Fundamentals: Conditionals
 ## Testing ##
@@ -145,21 +146,36 @@ done
 ``` bash
 if [ "myString" = "myString" ]; then
     echo true
-elif [ 5 -lt 5 ]
+elif test 5 -lt 7
     echo "This should not be reached"
 else
     echo "If you're here something is very wrong"
 fi
 ```
+Notice the spaces around the bracket
+ 
+# Practice
+Write a quick program that takes in any number of arguments, then prints them all out in the format: 
 
-Notice the spaces around the brackets
+arg1: <argument 1>
+arg2: <argument 2>
+
+# Practice
+One solution:
+``` bash
+for i in 1 $#; do
+    echo "arg$i: $$i"
+done
+```
 
 # Fundamentals: Tools
 
- * `grep` - find
- * `tr` - find and replace characters
- * `echo` - print a value
- * `cat`  - print the contents of a file
+ * `grep`   - find
+ * `tr`     - find and replace characters
+ * `echo`   - print a value
+ * `cat`    - print the contents of a file
+ * `sleep`  - sleeps for a given number of seconds
+ * `bc`     - basic calculator 
  
 # grep
  * Used to pattern match
