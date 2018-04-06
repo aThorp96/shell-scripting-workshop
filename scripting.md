@@ -6,11 +6,12 @@
  * Automatically running shell commands
 
 
+
 # Why use shell scripting
  * You already use the language
  * Avoiding large overhead/libraries
  * Very easy to write
- * Interract natively with OS environment
+ * Interact natively with OS environment
 
 # Documentation / References
 Documentation can be found my typing:
@@ -88,7 +89,20 @@ run `$./helloMe.sh`
  echo $STR1 $STR2
  echo $STR3
  ```
-
+ 
+ # Fundamentals: Arguments
+## Arguments
+ 
+ ```bash
+ # Called with argScript.sh <firstName> <lastName>
+ FNAME=$1
+ LNAME=$2
+ echo "Hello $1."
+ shift 1
+ echo "Your last name is $1"
+ 
+ ```
+ 
 # Fundamentals: Loops
 ## FOR loop ##
 
@@ -121,13 +135,13 @@ done
 # Fundamentals: Loops
 ## WHILE loop ##
  
+ * repeater.sh
 ``` bash
 echo "Press Ctrl-C to escape"
 while read f; do
     echo $f
 done
 ```
- * repeater.sh
  
 # Fundamentals: Reading a File
 ## WHILE loop ##
@@ -138,6 +152,7 @@ while read line; do
 done < file.txt
 ```
 Replace `file.txt` with path
+
     
 # Fundamentals: Conditionals
 ## Testing ##
@@ -145,21 +160,37 @@ Replace `file.txt` with path
 ``` bash
 if [ "myString" = "myString" ]; then
     echo true
-elif [ 5 -lt 5 ]
+elif test 5 -lt 7
     echo "This should not be reached"
 else
     echo "If you're here something is very wrong"
 fi
 ```
+Notice the spaces around the bracket
+ 
+# Practice
+Write a quick program that takes in any number of arguments, then prints them all out in the format: 
 
-Notice the spaces around the brackets
+arg1: <argument 1>
+arg2: <argument 2>
+
+# Practice
+One solution:
+``` bash
+for i in $( seq 1 $# ); do
+    shift 1
+    echo "arg$i: $1"
+done
+```
 
 # Fundamentals: Tools
 
- * `grep` - find
- * `tr` - find and replace characters
- * `echo` - print a value
- * `cat`  - print the contents of a file
+ * `grep`   - find
+ * `tr`     - find and replace characters
+ * `echo`   - print a value
+ * `cat`    - print the contents of a file
+ * `sleep`  - sleeps for a given number of seconds
+ * `bc`     - basic calculator 
  
 # grep
  * Used to pattern match
@@ -183,7 +214,3 @@ Notice the spaces around the brackets
  * Notoriously overused
  * Basic Syntax: `cat myFile`
 
-
-# Gotchas
-`"$USER"` vs `'$USER'`
-`if [$X ...` vs `if [ $X ...`
