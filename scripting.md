@@ -3,15 +3,12 @@
 %Linux@App
 
 # What is shell scripting?
- * BASH commands
- * BASH pipes
- * Environment variables
- * File manipulation
+ * Automatically running shell commands
+
 
 
 # Why use shell scripting
- * Learning the language
- * Not having to learn the language
+ * You already use the language
  * Avoiding large overhead/libraries
  * Very easy to write
  * Interact natively with OS environment
@@ -19,10 +16,10 @@
 # Documentation / References
 Documentation can be found my typing:
 
- `$man <program_name>`
+ `$ man <program_name>`
  
 # Review
-## Pipes
+## Redirection
  * `cmd1 | cmd2` takes output of `cmd1` and feeds it as input to `cmd2`
  * `cmd1 >> file` takes the output of `cmd1` and appends `file` with the contents
  * `cmd2 > file` takes the output of `cmd1` and overwrites `file` with the contents
@@ -43,13 +40,6 @@ echo "Hello $USER!" # This is also a comment
  `echo "Hello $USER!"`
 
 The echo command
-
-# Anatomy (aside)
-What is the difference here?
-`echo "Hello $USER!"`
-
-        vs
-`echo 'Hello $USER!'`
 
 # Anatomy
 
@@ -79,7 +69,7 @@ run `$./helloMe.sh`
  ```bash
  # variable definition
  message="hello there.\n"
- name="genreal kenobi..."
+ name="general kenobi..."
  #variable usage
  echo "$message $name"
  ```
@@ -92,12 +82,25 @@ run `$./helloMe.sh`
  ```bash
  # Called with argScript.sh <firstName> <lastName>
  FNAME=$1
- LNAME;$2
+ LNAME=$2
  STR1="Hello $1 $2. "
  STR2="You called this script with $# arguments" 
  STR3="The arguments were: $@"
  echo $STR1 $STR2
  echo $STR3
+ ```
+ 
+ # Fundamentals: Arguments
+## Arguments
+ 
+ ```bash
+ # Called with argScript.sh <firstName> <lastName>
+ FNAME=$1
+ LNAME=$2
+ echo "Hello $1."
+ shift 1
+ echo "Your last name is $1"
+ 
  ```
  
 # Fundamentals: Loops
@@ -124,7 +127,7 @@ done
 ## FOR loop ##
 
 ```bash
-for i in `seq 1 10; do
+for i in $(seq 1 10); do
     echo "item: $i"
 done
 ``` 
@@ -139,6 +142,17 @@ while read f; do
     echo $f
 done
 ```
+ 
+# Fundamentals: Reading a File
+## WHILE loop ##
+
+```bash
+while read line; do
+    echo $line
+done < file.txt
+```
+Replace `file.txt` with path
+
     
 # Fundamentals: Conditionals
 ## Testing ##
@@ -163,10 +177,16 @@ arg2: <argument 2>
 # Practice
 One solution:
 ``` bash
-for i in 1 $#; do
-    echo "arg$i: $$i"
+for i in $( seq 1 $# ); do
+    shift 1
+    echo "arg$i: $1"
 done
 ```
+
+# Nuances
+-`"$USER"` vs `'$USER'`
+-`if [$X ...` vs `if [ $X ...
+
 
 # Fundamentals: Tools
 
@@ -186,7 +206,7 @@ done
 # tr
  * Replaces characters with other characters (called "sets")
  * Usefull for manipulating text files
- * Basic syntax: (replaces each space witha  newline) `cat myFile | tr ' ' '\n'`
+ * Basic syntax: (replaces each space with a newline) `cat myFile | tr ' ' '\n'`
 
 # echo 
  * Prints input to standard out
@@ -194,7 +214,8 @@ done
  * Basic syntax: `echo "Hello World!"`
 
 # cat
- * Stands for concatinate 
+ * Stands for concatenate 
  * Outputs contents of file to stnadard out.
  * Notoriously overused
  * Basic Syntax: `cat myFile`
+
