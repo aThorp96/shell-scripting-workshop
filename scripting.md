@@ -183,6 +183,11 @@ for i in $( seq 1 $# ); do
 done
 ```
 
+# Nuances
+-`"$USER"` vs `'$USER'`
+-`if [$X ...` vs `if [ $X ...
+
+
 # Fundamentals: Tools
 
  * `grep`   - find
